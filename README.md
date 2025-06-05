@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Playwright](https://img.shields.io/badge/playwright-1.41+-green.svg)](https://playwright.dev/)
 
-An automated Python script to extract delinquent tax information from Lancaster County, PA's public parcel viewer system.
+An automated Python script to extract delinquent tax information from Lancaster County, PA's public parcel viewer system. 
 
 ## How It Works
 
