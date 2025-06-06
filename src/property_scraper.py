@@ -52,6 +52,15 @@ class LancasterTaxScraper:
     def extract_delinquent_taxes(self):
         """Extract delinquent tax information from the page."""
         try:
+            # First try to click the Delinquent Taxes link
+            try:
+                delinquent_link = self.page.query_selector('a[href="#TaxClaims"]')
+                if delinquent_link:
+                    delinquent_link.click()
+                    time.sleep(1)
+            except Exception as e:
+                print(f"Note: Could not click delinquent taxes link: {e}")
+
             # Try different possible table selectors
             tax_table = None
             selectors = [

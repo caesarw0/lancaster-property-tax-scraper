@@ -14,9 +14,14 @@ https://lancasterpa.devnetwedge.com/parcel/view/{parcel_number}/{tax_year}
 ```
 
 Example URL:
-```
-https://lancasterpa.devnetwedge.com/parcel/view/5408465600000/2025
-```
+
+[https://lancasterpa.devnetwedge.com/parcel/view/5408465600000/2025](https://lancasterpa.devnetwedge.com/parcel/view/5408465600000/2025)
+
+### Demo
+Watch the scraper in action:
+
+![Scraper Demo](/img/property_scraper_demo.gif)
+*Automated scraping process demonstration*
 
 ### Web Interface
 ![Parcel View](/img/lancaster_landing.png)
