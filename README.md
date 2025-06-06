@@ -6,6 +6,49 @@
 
 An automated Python script to extract delinquent tax information from Lancaster County, PA's public parcel viewer system.
 
+## Overview
+
+This scraper extracts delinquent tax data from the Lancaster County Property Tax portal:
+```
+https://lancasterpa.devnetwedge.com/parcel/view/{parcel_number}/{tax_year}
+```
+
+Example URL:
+```
+https://lancasterpa.devnetwedge.com/parcel/view/5408465600000/2025
+```
+
+### Web Interface
+![Parcel View](/img/lancaster_landing.png)
+
+![Tax Img](/img/delinquent_taxes_screenshot.png)
+*Screenshot of the Lancaster County Parcel Viewer interface where data is extracted from*
+
+## Sample Output
+
+### CSV Output Format
+![CSV Output](/img/sample_output.png)
+
+The script generates a structured CSV file containing delinquent tax information:
+```csv
+parcel_number,address,owner,scrape_date,tax_year,amount_due,amount_paid,total_due
+5408465600000,123 MAIN ST LANCASTER PA,JOHN DOE,2024-03-20,2023,1500.00,0.00,1500.00
+1200794700000,456 ELM ST LANCASTER PA,JANE SMITH,2024-03-20,2022,2000.00,500.00,1500.00
+```
+
+## Project Structure
+
+```
+lancaster-property-tax-scraper/
+├── src/
+│   └── property_scraper.py  # Main scraper implementation
+├── output/
+│   └── delinquent_taxes.csv # Generated output file
+├── img/                     # Documentation images
+├── requirements.txt         # Python dependencies
+└── README.md               # Documentation
+```
+
 ## How It Works
 
 ### Overall Workflow
