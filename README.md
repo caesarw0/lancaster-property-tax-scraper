@@ -4,12 +4,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Playwright](https://img.shields.io/badge/playwright-1.41+-green.svg)](https://playwright.dev/)
 
-An automated Python script to extract delinquent tax information from Lancaster County, PA's public parcel viewer system.
+## Demo
+
+Watch the scraper in action:
+
+![Scraper Demo](/img/property_scraper_demo.gif)
+*Automated scraping process demonstration*
 
 ## Overview
 
+An automated Python script to extract delinquent tax information from Lancaster County, PA's public parcel viewer system.
 This scraper extracts delinquent tax data from the Lancaster County Property Tax portal:
-```
+
+```javascript
 https://lancasterpa.devnetwedge.com/parcel/view/{parcel_number}/{tax_year}
 ```
 
@@ -17,13 +24,9 @@ Example URL:
 
 [https://lancasterpa.devnetwedge.com/parcel/view/5408465600000/2025](https://lancasterpa.devnetwedge.com/parcel/view/5408465600000/2025)
 
-### Demo
-Watch the scraper in action:
-
-![Scraper Demo](/img/property_scraper_demo.gif)
-*Automated scraping process demonstration*
 
 ### Web Interface
+
 ![Parcel View](/img/lancaster_landing.png)
 
 ![Tax Img](/img/delinquent_taxes_screenshot.png)
@@ -32,9 +35,11 @@ Watch the scraper in action:
 ## Sample Output
 
 ### CSV Output Format
+
 ![CSV Output](/img/sample_output.png)
 
 The script generates a structured CSV file containing delinquent tax information:
+
 ```csv
 parcel_number,address,owner,scrape_date,tax_year,amount_due,amount_paid,total_due
 5408465600000,123 MAIN ST LANCASTER PA,JOHN DOE,2024-03-20,2023,1500.00,0.00,1500.00
@@ -43,7 +48,7 @@ parcel_number,address,owner,scrape_date,tax_year,amount_due,amount_paid,total_du
 
 ## Project Structure
 
-```
+```text
 lancaster-property-tax-scraper/
 ├── src/
 │   └── property_scraper.py  # Main scraper implementation
@@ -57,6 +62,7 @@ lancaster-property-tax-scraper/
 ## How It Works
 
 ### Overall Workflow
+
 ```mermaid
 graph LR
     A["Input Parcel List"] --> B["Initialize Scraper"]
@@ -72,6 +78,7 @@ graph LR
 ```
 
 ### Data Extraction Process
+
 ```mermaid
 graph TD
     A["Parcel Page"] --> B["Basic Info"]
@@ -87,6 +94,7 @@ graph TD
 ```
 
 ### Error Handling & Rate Limiting
+
 ```mermaid
 sequenceDiagram
     participant S as Scraper
@@ -118,6 +126,7 @@ sequenceDiagram
 ## Data Extracted
 
 For each parcel with delinquent taxes, the script collects:
+
 - Parcel number
 - Property address
 - Owner information
@@ -136,17 +145,20 @@ For each parcel with delinquent taxes, the script collects:
 ## Installation
 
 1. Clone this repository:
+
 ```bash
 git clone https://github.com/caesarw0/lancaster-property-tax-scraper.git
 cd lancaster-property-tax-scraper
 ```
 
 2. Install required packages:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Install Playwright browsers:
+
 ```bash
 playwright install
 ```
@@ -156,11 +168,13 @@ playwright install
 1. Prepare a list of parcel numbers in the script or import them from a file.
 
 2. Run the script:
+
 ```bash
 python src/property_scraper.py
 ```
 
 The script will:
+
 - Process each parcel number
 - Extract delinquent tax information if available
 - Save results to `output/delinquent_taxes.csv`
@@ -181,6 +195,7 @@ df = scrape_multiple_parcels(parcel_numbers)
 ## Rate Limiting
 
 The script includes built-in delays between requests (2-5 seconds) to avoid overwhelming the server. This helps ensure:
+
 - Ethical scraping practices
 - Reduced likelihood of IP blocking
 - Server resource conservation
@@ -188,6 +203,7 @@ The script includes built-in delays between requests (2-5 seconds) to avoid over
 ## Output Format
 
 The script generates a CSV file with the following columns:
+
 - parcel_number
 - address
 - owner
@@ -200,6 +216,7 @@ The script generates a CSV file with the following columns:
 ## Error Handling
 
 The script includes robust error handling for:
+
 - Network timeouts
 - Missing data
 - Invalid parcel numbers
@@ -208,6 +225,7 @@ The script includes robust error handling for:
 ## Legal Notice
 
 This tool is designed for legitimate data collection from publicly available information. Users should:
+
 - Review and comply with Lancaster County's terms of service
 - Use reasonable request rates
 - Respect the public resource
